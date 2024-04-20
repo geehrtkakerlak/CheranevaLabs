@@ -1,0 +1,6 @@
+{
+    "cmake.buildTask": true,
+    "cmake.debugConfig": {
+        "externalConsole": true
+    }
+}
