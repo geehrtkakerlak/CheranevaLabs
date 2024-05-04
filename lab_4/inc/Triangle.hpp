@@ -3,17 +3,18 @@
 
 namespace mt
 {
-    class Circle
+    class Triangle
     {
         float m_r;
         sf::Vector2f m_position;
         sf::CircleShape m_shape;
 
     public:
-        Circle() = default;
+        Triangle() = default;
 
-        Circle(sf::Vector2f position, float r)
+        Triangle(sf::Vector2f position, float r)
         {
+            m_shape.setPointCount(3);
             Setup(position, r);
         }
 

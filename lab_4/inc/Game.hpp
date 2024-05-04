@@ -1,7 +1,10 @@
 #pragma once
 #include <string>
 
+#include <vector>
 #include "Circle.hpp"
+#include "Rectangle.hpp"
+#include "Triangle.hpp"
 
 namespace mt
 {
@@ -11,7 +14,12 @@ namespace mt
         int m_width;
         int m_height;
         std::string m_capture;
-        mt::Circle *m_c;
+
+        std::vector<mt::Circle> m_circles;
+        std::vector<mt::Rectangle> m_rectangles;
+        std::vector<mt::Triangle> m_triangels;
+        std::vector<mt::Rectangle> m_lines;
+
         int m_n;
         sf::RenderWindow m_window;
 
@@ -26,18 +34,31 @@ namespace mt
         void Setup(int n)
         {
             m_n = n;
-            // Ñîçäàíèå îêíà
             m_window.create(sf::VideoMode(m_width, m_height), m_capture);
 
             srand(time(0));
 
-            m_c = new mt::Circle[m_n];
             for (int i = 0; i < m_n; i++)
             {
                 int x = rand() % 1000;
                 int y = rand() % 600;
                 int r = rand() % 100 + 1;
-                m_c[i].Setup(x, y, r);
+                m_circles.push_back(mt::Circle(sf::Vector2f(x, y), r));
+            }
+
+            for (int i = 0; i < m_n; i++)
+            {
+                m_rectangles.push_back(mt::Rectangle(sf::Vector2f(10 + 20 * i, 10), sf::Vector2f{10.f, 15.f}));
+            }
+
+            for (int i = 0; i < m_n; i++)
+            {
+                m_triangels.push_back(mt::Triangle(sf::Vector2f(100 + 100 * i, 100), 20));
+            }
+
+            for (int i = 0; i < m_n; i++)
+            {
+                m_lines.push_back(mt::Rectangle(sf::Vector2f(500 + 100 * i, 200), sf::Vector2f{4, 50}));
             }
         }
 
@@ -55,7 +76,13 @@ namespace mt
 
                 m_window.clear();
                 for (int i = 0; i < m_n; i++)
-                    m_window.draw(m_c[i].Get());
+                {
+                    m_window.draw(m_circles[i].Get());
+                    m_window.draw(m_rectangles[i].Get());
+                    m_window.draw(m_triangels[i].Get());
+                    m_window.draw(m_lines[i].Get());
+                }
+
                 m_window.display();
             }
         }

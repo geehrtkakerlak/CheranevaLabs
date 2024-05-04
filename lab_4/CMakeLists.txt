@@ -6,7 +6,7 @@ set(PROJECT_NAME sfml_sample)				 # имя проекта
 project("${PROJECT_NAME}")
 
 
-set(CMAKE_CXX_STANDARD 17)			 # устанавливаем 17 стандарт языка
+set(CMAKE_CXX_STANDARD 20)			 # устанавливаем 17 стандарт языка
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
