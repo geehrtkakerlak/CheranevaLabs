@@ -15,7 +15,7 @@ include_directories("inc")
 
 
 # Сказать программе, что должен быть исполняемый файл
-add_executable("${PROJECT_NAME}" main.cpp src/lab3.cpp)
+add_executable("${PROJECT_NAME}" main.cpp src/lab3.cpp inc/lab3.hpp)
 
 # Копирование файла
 # file(COPY "input.txt" DESTINATION "/Users/anastasiacheraneva/Desktop/xcode/2.2/2.2")
