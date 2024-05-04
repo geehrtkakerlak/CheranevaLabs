@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "lab3.hpp"
+#include "inc/lab3.hpp"
 
 class MyString
 {
@@ -10,7 +10,7 @@ class MyString
 
 public:
     // Конструктор
-    MyString(char *s = "")
+    MyString(char *s =" ")
     {
         length = 0;
         while (s[length] != '\0')
